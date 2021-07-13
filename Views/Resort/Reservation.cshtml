@@ -1,0 +1,40 @@
+@model Reservation
+<div style="margin-top: 100px;" class="d-flex justify-content-center">
+    <div class="card w-50">
+        <h3 style="text-align: center;" class="card-header
+">New Reservation</h3>
+        <div class="card-body">
+            <form  asp-action="ReservationPost" asp-controller="Resort" asp-route-resortId="@ViewBag.ResortId" method="POST">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label asp-for="numAdult"></label>
+                    <input class="form-control" asp-for="numAdult" /><br />
+                    <span class="text-danger" asp-validation-for="numAdult"></span>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label asp-for="numChild"></label>
+                    <input class="form-control" asp-for="numChild" /><br />
+                    <span class="text-danger" asp-validation-for="numChild"></span>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label asp-for="Comment"></label>
+                    <input class="form-control"  asp-for="Comment" /><br />
+                    <span class="text-danger" asp-validation-for="Comment"></span>
+                </div>
+                <div id="flexDate" style="display: flex;">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label asp-for="FromDate"></label>
+                        <input class="form-control" asp-for="FromDate" /><br />
+                        <span class="text-danger" asp-validation-for="FromDate"></span>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label asp-for="ToDate"></label>
+                        <input class="form-control" asp-for="ToDate" /><br />
+                        <span class="text-danger" asp-validation-for="ToDate"></span>
+                    </div>
+                </div>
+                <input type="hidden" asp-for="ResortId" value="@ViewBag.ResortId">
+                <button class="btn btn-primary" type="submit"> Reservation </button>
+            </form>
+        </div>
+    </div>
+</div>

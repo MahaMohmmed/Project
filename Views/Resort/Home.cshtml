@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<style>
+.container {
+  position: relative;
+  font-family: Arial;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  opacity: 70%;
+  border-radius: 5px;
+}
+</style>
+<body>
+    <div class="cards">
+    @foreach (var city in ViewBag.City)
+    {
+    <a asp-action="City" asp-controller="Resort" asp-route-cityId="@city.CityId"> 
+    <div class="container">
+    <div class="card" 
+    style="background-image: url(@city.ImgUrl); width: 20rem; height:20rem; background-size:100% 100%; background-repeat: no-repeat; margin-top:23px; margin-left:10px; border-radius: 25px;">
+        <div class="card-body">
+                
+                <div class="text-block">
+                    <h4>@city.Name</h4>
+                </div>
+        </div>
+        </div>
+    </div>
+        </a>   
+    }@if(ViewBag.User.UserId==1){
+     <a asp-action="CityForm" asp-controller="Resort"  > 
+    <div class="container">
+    <div class="card" 
+    style="background-image: url(https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/plus-60.png); width: 20rem; height:20rem; background-size:100% 100%; background-repeat: no-repeat; margin-top:23px; margin-left:10px; border-radius: 25px;">
+        <div class="card-body">
+                
+                 
+                    <h4 style="text-align: center;">Add City</h4>
+                 
+        </div>
+        </div>
+    </div>
+        </a>   
+           
+    }
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+@* ViewBag.User *@
+@model Resort
+<p>Hello @ViewBag.User.FirstName! <a asp-action="Dashboard" asp-controller="Resort">Dashboard</a> - <a
+        asp-action="LogOut" asp-controller="Home">LogOut</a></p>
+
+<h1>Edit Resort</h1>
+<form asp-action="UpdateResort" asp-controller="Resort" asp-route-resortId="@Model.ResortId" method="POST">
+    <partial name="_ResortFormPartial"></partial>
+</form>

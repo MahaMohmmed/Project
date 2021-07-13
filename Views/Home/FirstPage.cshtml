@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+</style>
+</head>
+<body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="https://assets.mixkit.co/videos/preview/mixkit-sky-of-a-sunny-day-with-birds-and-palm-trees-33832-large.mp4" type="video/mp4">
+</video>
+
+<div style="margin-top: 100px;" class="d-flex justify-content-center">
+<div class="card w-50" style="opacity: 0.6;
+    background-color: whitesmoke; color: brown;
+    font-family: cursive;    text-align: center;">
+    <h3 style="text-align: center;" ></h3>
+        <div class="card-body">
+            <h1>Saudi Resort</h1>
+            <p> Welcome to Suadi Resort here you can add your own resorts or make reservation to any resort you like ..</p>
+        </div><a asp-action="Login" asp-controller="Home"  ><button class="btn btn-primary" type="submit">Sign in</button></a><br>
+                
+    </div>
+
+</div>
+</body>
+</html>

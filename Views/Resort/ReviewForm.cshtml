@@ -1,0 +1,34 @@
+@model Comment
+
+<div style="margin-top: 100px;" class="d-flex justify-content-center">
+    <div class="card w-50">
+        <h3 style="text-align: center;" class="card-header">Write Reviw</h3>
+        <div class="card-body">
+<form asp-action="PostComment" asp-controller="Resort" asp-route-resorttId="@ViewBag.ResortId" asp-route-userId="@ViewBag.UserId" method="POST">
+
+<div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text">Stars</label>
+            </div>
+            <select asp-for="Rate" class="custom-select" id="inputGroupSelect01">
+                <option selected>Select</option>
+                @for (int i=1; i<=5;i++)
+                {
+                <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+
+ 
+<div class="form-group mx-sm-3 mb-2">
+    <label asp-for="Message"></label>
+    <textarea  asp-for="Message" ></textarea><br />
+    <span class="text-danger" asp-validation-for="Message"></span>
+</div>
+ 
+ <button class="btn btn-primary btn-lg active" type="submit">Add Review</button>
+</form>
+  </div>
+    </div>
+</div>
+

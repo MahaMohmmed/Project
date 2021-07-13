@@ -1,0 +1,85 @@
+@* ViewBag.User *@
+@model List<Resort>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <h1 style="font-family: initial;">Welcome @ViewBag.User.FirstName </h1>
+    <h2 style="font-family: initial; margin-left: 20px;">Where do you want to spend your vacation!</h2>
+    @* <a asp-action="NewResort" asp-controller="Resort"><button
+        class="btn btn-sm btn-primary">New Resort </button></a> *@
+
+        @* <a asp-action="Dashboard" asp-controller="Resort"><button
+        class="btn btn-sm btn-primary">my Dashboard</button></a> *@
+
+        <div class="cards" >    
+        @foreach (var resort in Model)
+        {
+                <div class="card" style=" width: 20rem; height:20rem; margin-top:23px; margin-left:23px">
+                <img style="height: 250px; margin-bottom: 15px" src=@resort.ImgUrl> </img>
+            <a class="aTag" asp-action="ResortInfo" asp-controller="Resort" asp-route-resortId="@resort.ResortId" ><p class="text-center">@resort.Name</p></a>
+            @* rat *@
+            @if(resort.Rate ==0){
+                <div class="star">
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            } else if(resort.Rate ==1){
+                <div class="star">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            } else if(resort.Rate ==2){
+                <div class="star">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked "></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            }else if(resort.Rate ==3){
+                <div class="star">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            }else if(resort.Rate ==4){
+                <div class="star">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            }else if(resort.Rate ==5){
+                <div class="star">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+            }
+
+            </div>
+        }
+        </div>
+        
+
+</body>
+</html>

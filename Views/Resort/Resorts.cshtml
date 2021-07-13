@@ -1,0 +1,30 @@
+@* page will show one movie detail *@
+@* ViewBag.User *@
+@model Resort
+<p style="    margin-top: 20px;">Hello @ViewBag.User.FirstName! </p>
+@* 
+<a asp-action="Dashboard" asp-controller="Resort">Dashboard</a> - <a
+        asp-action="LogOut" asp-controller="Home">LogOut</a> *@
+<div class="row">
+    <div class="col-md-6">
+        <h1>@Model.Name</h1>
+        <p>Description: @Model.Description</p>
+        <p>Posted By: @Model.PostedBy.FirstName</p>
+    
+    <div>
+        <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=@Model.Latitude,@Model.Longitude&hl=es&z=14&amp;output=embed"></iframe>
+    </div>
+        @* buttons here, Delete if user is poster otherwise show Like or Unlike *@
+        @if (Model.PostedBy.UserId == ViewBag.User.UserId)
+        {
+            <a asp-action="Edit" asp-controller="Resort" asp-route-resortId="@Model.ResortId"><button
+                class="btn btn-sm btn-success">Edit</button></a>
+            <a asp-action="Delete" asp-controller="Resort" asp-route-resortId="@Model.ResortId"><button
+                class="btn btn-sm btn-danger">Delete</button></a>
+        }
+    
+    </div>
+    <div class="col-md-6">
+        <img src="@Model.ImgUrl" alt="@Model.Name" width="90%" height="90%">
+    </div>
+</div>

@@ -1,0 +1,81 @@
+@model Resort
+<div class="row">
+    <div class="col-md-6 ">
+        <div  class="form-group mx-sm-3 mb-2">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" /><br />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label asp-for="Description"></label>
+            <input class="form-control" asp-for="Description" /><br />
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label asp-for="ImgUrl"></label>
+            <input class="form-control" asp-for="ImgUrl" /><br />
+            <span class="text-danger" asp-validation-for="ImgUrl"></span>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label asp-for="ImgUrl2"></label>
+            <input class="form-control" asp-for="ImgUrl2" /><br />
+            <span class="text-danger" asp-validation-for="ImgUrl2"></span>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label asp-for="ImgUrl3"></label>
+            <input class="form-control" asp-for="ImgUrl3" /><br />
+            <span class="text-danger" asp-validation-for="ImgUrl3"></span>
+        </div>
+        
+    </div>
+    @* map *@
+        <div class="col-md-6 ">
+            <div class="form-group mx-sm-3 mb-2">
+            <label asp-for="Limit"></label>
+            <input class="form-control" asp-for="Limit" /><br />
+            <span class="text-danger" asp-validation-for="Limit"></span>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text">Stars</label>
+            </div>
+            <select asp-for="Rate" class="custom-select" id="inputGroupSelect01">
+                <option selected>Select</option>
+                @for (int i=1; i<=5;i++)
+                {
+                <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">SAR</span>
+            </div>
+            <input asp-for="Price" type="text" class="form-control">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text">City</label>
+            </div>
+            <select asp-for="CityId" class="custom-select" id="inputGroupSelect01">
+                <option selected>Select</option>
+                @foreach (var city in ViewBag.City)
+                {
+                <option value="@city.CityId">@city.Name</option>
+                }
+            </select>
+        </div>
+
+            <div>
+                <label>Pin Your Resort Location:</label>
+                <div id="mapid"></div>
+                <input asp-for="Latitude" id="latitude" type="hidden" >
+                <input  asp-for="Longitude" id="longitude" type="hidden" >
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary btn-lg active
+" type="submit">Submit</button>
+</div>

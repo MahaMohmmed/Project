@@ -1,0 +1,24 @@
+@model City
+<div style="margin-top: 100px;" class="d-flex justify-content-center">
+    <div class="card w-50">
+        <h3 style="text-align: center;" class="card-header">New City</h3>
+        <div class="card-body">
+            <form  asp-action="PostCity" asp-controller="Resort"   method="POST">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label asp-for="Name"></label>
+                    <input class="form-control" asp-for="Name" /><br />
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label asp-for="ImgUrl"></label>
+                    <input class="form-control" asp-for="ImgUrl" /><br />
+                    <span class="text-danger" asp-validation-for="ImgUrl"></span>
+                </div>
+                 
+               
+                
+                <button class="btn btn-primary" type="submit"> Add City </button>
+            </form>
+        </div>
+    </div>
+</div>
